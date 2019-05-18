@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鲜花</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        header span {
+            display: inline-block;
+            width: 33%;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            font-size: 18px
+        }
+        
+        .active {
+            background: red;
+            color: #fff;
+        }
+        
+        ul {
+            margin-top: 20px
+        }
+        
+        img {
+            width: 30%;
+        }
+        
+        ul li {
+            width: 100%;
+            display: flex;
+            height: 200px;
+            margin-bottom: 20px
+        }
+        
+        .box {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            margin-top: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <span class="active">综合</span>
+            <span>销量</span>
+            <span>价格</span>
+        </header>
+        <ul>
+            <li v-for="(item,index) in FlowerList">
+                <img :src="item.Image" alt="">
+                <div class="box">
+                    <span>{{item.Name}}</span>
+                    <p>{{item.Introduction}}</p>
+                    <h3>{{item.pirce}}</h3>
+                    <em>{{item.Sales}}</em>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                "FlowerList": [{
+                    "Name": "忘情巴黎",
+                    "Introduction": "33枝红玫瑰",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9012009.jpg",
+                    "Price": 292,
+                    "LinePrice": 383,
+                    "Sales": "7.5万",
+                    "NowPromo": ["浪漫唯美 女神挚爱"],
+                    "ItemCode": "9012009"
+                }, {
+                    "Name": "真爱如初",
+                    "Introduction": "雪山玫瑰11枝、深紫色勿忘我0.3扎",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9010947.jpg",
+                    "Price": 185,
+                    "LinePrice": 209,
+                    "Sales": "6.9万",
+                    "NowPromo": ["已优惠30元"],
+                    "ItemCode": "9010947"
+                }, {
+                    "Name": "忘情巴黎＋德芙心语巧克力98克特价组合套装",
+                    "Introduction": "33枝红玫瑰",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9092117.jpg",
+                    "Price": 329,
+                    "LinePrice": 366,
+                    "Sales": "5.5万",
+                    "NowPromo": null,
+                    "ItemCode": "9092117"
+                }, {
+                    "Name": "一心一意",
+                    "Introduction": "玫瑰11枝，粉色勿忘我0.3扎",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9010011.jpg",
+                    "Price": 126,
+                    "LinePrice": 139,
+                    "Sales": "7.7万",
+                    "NowPromo": ["已优惠10元"],
+                    "ItemCode": "9010011"
+                }, {
+                    "Name": "淳美之爱",
+                    "Introduction": "戴安娜粉玫瑰33枝，白色相思梅5枝",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9010869.jpg",
+                    "Price": 300,
+                    "LinePrice": 392,
+                    "Sales": "1.6万",
+                    "NowPromo": null,
+                    "ItemCode": "9010869"
+                }, {
+                    "Name": "恋恋情深",
+                    "Introduction": "11枝香槟玫瑰，白百合2枝",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9012243.jpg",
+                    "Price": 195,
+                    "LinePrice": 255,
+                    "Sales": "6.7万",
+                    "NowPromo": null,
+                    "ItemCode": "9012243"
+                }, {
+                    "Name": "一心一意+德芙心语巧克力特价组合套装",
+                    "Introduction": "玫瑰11枝，粉色勿忘我0.3扎",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9092118.jpg",
+                    "Price": 205,
+                    "LinePrice": 246,
+                    "Sales": "7411",
+                    "NowPromo": null,
+                    "ItemCode": "9092118"
+                }, {
+                    "Name": "恋恋情深＋心相印蛋糕",
+                    "Introduction": "11枝香槟玫瑰，白百合2枝",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9092116.jpg",
+                    "Price": 322,
+                    "LinePrice": 369,
+                    "Sales": "6.1万",
+                    "NowPromo": ["特价！"],
+                    "ItemCode": "9092116"
+                }, {
+                    "Name": "浪漫缤纷",
+                    "Introduction": "戴安娜粉玫瑰50枝",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9012041.jpg",
+                    "Price": 371,
+                    "LinePrice": 486,
+                    "Sales": "6316",
+                    "NowPromo": null,
+                    "ItemCode": "9012041"
+                }, {
+                    "Name": "一往情深",
+                    "Introduction": "精品玫瑰礼盒:19枝红玫瑰，勿忘我适量",
+                    "Image": "https://img01.hua.com/uploadpic/newpic/9010966.jpg",
+                    "Price": 244,
+                    "LinePrice": 315,
+                    "Sales": "8.0万",
+                    "NowPromo": ["经典爆款，年销售冠军！"],
+                    "ItemCode": "9010966"
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>
